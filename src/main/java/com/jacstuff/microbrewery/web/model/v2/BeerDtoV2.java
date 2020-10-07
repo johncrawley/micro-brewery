@@ -18,8 +18,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BeerDtoV2 {
-
-
 		
 		private UUID id;
 		private String beerName;

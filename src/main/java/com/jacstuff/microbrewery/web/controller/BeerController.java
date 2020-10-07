@@ -35,17 +35,16 @@ public class BeerController {
 		return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);	
 	}
 	
-	@PostMapping("/save")
+	@PostMapping()
 	public ResponseEntity<BeerDto> handlePost(@RequestBody BeerDto beerDto){
 		BeerDto savedDto = beerService.saveBeer(beerDto);
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Location", "/api/v1/beer" + savedDto.getId().toString());
-		
 		return new ResponseEntity<>(headers, HttpStatus.CREATED);
 	}
 	
 	// get an existing entity and update it
-	@PutMapping("/{beerId}")
+	@PutMapping({"/{beerId}"})
 	public ResponseEntity<Void> handleUpdate(@PathVariable("beerId") UUID beerId, BeerDto beerDto) {
 		// need safeguards to protect the ID, so client can't amend it
 		beerService.updateBeer(beerId, beerDto);
