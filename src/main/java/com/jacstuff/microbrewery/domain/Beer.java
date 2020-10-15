@@ -1,27 +1,28 @@
-package com.jacstuff.microbrewery.web.model;
+package com.jacstuff.microbrewery.domain;
 
-import java.time.OffsetDateTime;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-
-@Data //create getters setters, equals(), hashCode()
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class BeerDto {
+public class Beer {
 
-	
 	private UUID id;
 	private String beerName;
 	private String beerStyle;
 	private Long upc;
 	
-	private OffsetDateTime createdDate;
-	private OffsetDateTime lastUpdatedDate;
+	private Timestamp createdDate;
+	private Timestamp lastUpdatedDate;
 
 }
